@@ -15,5 +15,9 @@
 -  Context + User input / query
 
 #### 3 Evaluation
+* RAG evaluation 
+    * checks the whole flow together.This includes:
+        * search
+        * prompt
 
 #### 4 Monitoring
