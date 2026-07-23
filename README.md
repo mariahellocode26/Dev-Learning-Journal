@@ -19,5 +19,7 @@
     * checks the whole flow together.This includes:
         * search
         * prompt
+        * LLM
+          
 
 #### 4 Monitoring
