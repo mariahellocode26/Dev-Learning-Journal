@@ -2,6 +2,7 @@
 
 ## Contents
 - [LLM - RAG Pipeline](#llm---rag-pipeline)
+- [ML - Churn Prediction](#ml---churn-prediction)
 
 ---
 
@@ -78,5 +79,62 @@ Measures the quality of the final generated answer.
 
 #### 6. Monitoring
 
+---
+
+### ML - Churn Prediction
+
+#### 1. Get the Data
+
+- Dataset: Telco Customer Churn
+
+#### 2. Data Preparation
+
+- Download the data and read it with Pandas.
+- Look at the data.
+- Make column names and values consistent and uniform.
+- Check that all columns were read correctly.
+- Check whether the `churn` variable needs any preparation.
+
+#### 3. Setting Up the Validation Framework
+
+- Perform the train/validation/test split using Scikit-Learn.
+- Keep the validation framework consistent so models can be compared fairly.
+
+#### 4. Exploratory Data Analysis (EDA)
+
+- Check for missing values.
+- Look at the target variable (`churn`).
+- Examine numerical variables.
+- Examine categorical variables.
+- Understand the distribution and characteristics of the data before modeling.
+
+#### 5. Feature Importance: Churn Rate & Risk Ratio
+
+Feature importance analysis is part of EDA. It helps identify which features are associated with the target variable.
+
+- **Churn rate**
+  - Percentage of customers who churn.
+  - Can be calculated for different groups/categories.
+- **Risk ratio**
+  - Compares the churn rate of a group with the overall churn rate.
+  - Helps identify groups with higher or lower churn risk.
+- **Mutual information**
+  - Covered later.
+
+#### 6. Feature Importance: Mutual Information
+
+**Mutual information** is a concept from information theory.
+
+It tells us how much we can learn about one variable if we know the value of another variable.
+
+- Measures the relationship between a feature and the target.
+- Can be used to identify categorical variables that contain useful information about churn.
+- Higher mutual information generally indicates a stronger dependency between the variables.
+
+#### 7. Feature Importance: Correlation
+
+- Measure the correlation between numerical features and the target variable.
+- Understand whether variables have a positive or negative relationship with churn.
+- Use correlation to identify potentially useful features and relationships between numerical variables.
 
 
