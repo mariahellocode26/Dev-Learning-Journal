@@ -3,6 +3,7 @@
 ## Contents
 - [LLM - RAG Pipeline](#llm---rag-pipeline)
 - [ML - Churn Prediction](#ml---churn-prediction)
+- [CAD - CadQuery](#cad---cadquery)
 
 ---
 
@@ -137,4 +138,44 @@ It tells us how much we can learn about one variable if we know the value of ano
 - Understand whether variables have a positive or negative relationship with churn.
 - Use correlation to identify potentially useful features and relationships between numerical variables.
 
+---
 
+
+### CAD - CadQuery
+
+#### 1. CadQuery
+
+- **CadQuery** is a Python library for creating **parametric 3D CAD models**.
+- Allows 3D models to be created programmatically using Python instead of manually modeling them in a CAD GUI.
+- Models can be generated from dimensions and geometric operations.
+- Because models are parametric, changing dimensions in the code can regenerate the model with the new dimensions.
+
+#### 2. Basic CAD Concepts
+
+- **H (Height)** — Overall height of the object.
+- **W (Width)** — Overall width of the object.
+- **T (Thickness)** — Overall thickness/depth of the object.
+- Example:
+  - `H = 6.9`
+  - `W = 14`
+  - `T = 1`
+
+#### 3. CadQuery Modeling Workflow
+
+A typical CadQuery workflow is:
+
+**Geometry → Features → Boolean operations → Final solid**
+
+1. Create a base shape.
+2. Add or remove geometric features.
+3. Create holes, cuts, or additional geometry.
+4. Apply operations such as fillets or chamfers.
+5. Store the final model in a variable.
+
+Example:
+
+```python
+solid = (
+    cq.Workplane("XY")
+    .box(14, 6.9, 1)
+)
