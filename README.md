@@ -179,3 +179,63 @@ solid = (
     cq.Workplane("XY")
     .box(14, 6.9, 1)
 )
+
+```
+
+#### 4. Workplanes
+
+- A **workplane** defines the plane and coordinate system where geometry is created.
+- Common planes:
+  - `XY`
+  - `XZ`
+  - `YZ`
+- Geometry can be created and positioned relative to a workplane.
+
+#### 5. Basic CadQuery Operations
+
+Common operations used to construct models:
+
+- `.box()` — Create a rectangular solid.
+- `.rect()` — Create a rectangular sketch/profile.
+- `.circle()` — Create a circular profile.
+- `.extrude()` — Convert a 2D profile into a 3D solid.
+- `.cut()` — Subtract one solid from another.
+- `.union()` — Combine solids.
+- `.hole()` — Create holes.
+- `.fillet()` — Round edges.
+- `.chamfer()` — Bevel edges.
+- `.faces()` — Select faces for further operations.
+- `.edges()` — Select edges for further operations.
+
+#### 6. STL vs CadQuery
+
+- **STL** represents a 3D object as a **mesh of triangles**.
+- A provided STL can be used as a **reference model** to inspect an object's geometry from different angles.
+- The STL can help determine:
+  - Overall dimensions
+  - Shape
+  - Holes
+  - Cutouts
+  - Relative proportions
+- **CadQuery** can then be used to recreate the object as a parametric CAD model.
+
+**Key distinction:**
+
+> STL = reference/mesh representation of the geometry.
+
+> CadQuery = Python-based method for constructing a parametric CAD model.
+
+#### 7. Image/Reference → CAD Model
+
+For image-based CAD tasks, the modeling process can be thought of as:
+
+**Reference → Geometry decomposition → CadQuery operations → `solid`**
+
+1. Inspect the reference images/STL.
+2. Break the object into simple geometric components.
+3. Identify the required overall dimensions.
+4. Select appropriate workplanes.
+5. Construct the geometry using CadQuery.
+6. Add/remove features such as holes and cutouts.
+7. Validate the overall dimensions.
+8. Store the final model in the required variable, e.g. `solid`.
