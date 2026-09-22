@@ -5,6 +5,14 @@
 - [ML - Churn Prediction](#ml---churn-prediction)
 - [CAD - CadQuery](#cad---cadquery)
 - [AI-Native Development](#ai-native-development)
+  - [Spec-Driven Development](#spec-driven-development)
+  - [AI-Assisted Specification Process](#ai-assisted-specification-process)
+  - [Backlog and Task Decomposition](#backlog-and-task-decomposition)
+  - [Context Engineering](#context-engineering)
+  - [Task Grooming](#task-grooming)
+  - [Agent Roles](#agent-roles)
+  - [Loop Engineering](#loop-engineering)
+  - [Graph Engineering](#graph-engineering)
 
 ---
 
@@ -241,7 +249,7 @@ For image-based CAD tasks, the modeling process can be thought of as:
 7. Validate the overall dimensions.
 8. Store the final model in the required variable, e.g. `solid`.
 
-
+---
 
 ### AI-Native Development
 
