@@ -4,6 +4,7 @@
 - [LLM - RAG Pipeline](#llm---rag-pipeline)
 - [ML - Churn Prediction](#ml---churn-prediction)
 - [CAD - CadQuery](#cad---cadquery)
+- [AI-Native Development](#ai-native-development)
 
 ---
 
@@ -239,3 +240,146 @@ For image-based CAD tasks, the modeling process can be thought of as:
 6. Add/remove features such as holes and cutouts.
 7. Validate the overall dimensions.
 8. Store the final model in the required variable, e.g. `solid`.
+
+
+
+### AI-Native Development
+
+#### 1. Spec-Driven Development
+
+AI coding agents can implement code very quickly, but if the requirements are vague, the agent fills in the missing details with its own assumptions.
+
+**Spec-driven development** means defining what should be built before asking the coding agent to implement it.
+
+A good specification clarifies:
+
+- Who the users are.
+- What problem the product solves.
+- How users will interact with it.
+- What is included in the MVP.
+- What is explicitly out of scope.
+- The constraints and requirements the implementation must follow.
+
+The key idea is:
+
+> The goal is not to get the agent to write code faster, but to give it enough context to build the right thing.
+
+#### 2. AI-Assisted Specification Process
+
+Instead of immediately giving a vague idea to a coding agent:
+
+**Idea → Chat/Brainstorming → Specification → Implementation**
+
+An AI assistant can first be used as a brainstorming partner to clarify the idea one question at a time.
+
+Once the requirements are clear, they can be saved as a Markdown specification and used as the source of truth for implementation.
+
+#### 3. Backlog and Task Decomposition
+
+A specification can be decomposed into small implementation tasks.
+
+Good tasks should:
+
+- Be small enough to complete in one session.
+- Be independent enough to understand without reading unrelated tasks.
+- Have clear goals and requirements.
+- Define what is out of scope.
+- Include constraints.
+
+The backlog can then be managed through GitHub Issues, making the issues the active source of implementation tasks.
+
+#### 4. Context Engineering
+
+**Prompt engineering** controls what is communicated in a particular prompt.
+
+**Context engineering** controls what the coding agent knows when it starts a session and what information it can access while working.
+
+Important project context can be stored in files such as:
+
+- `AGENTS.md` — project commands, rules, and important context.
+- `CLAUDE.md` — Claude-specific entry point that can reference `AGENTS.md`.
+- `_docs/process.md` — development workflow and process.
+- `_docs/testing-guidelines.md` — testing rules.
+- `_docs/design-system.md` — UI/design rules.
+- `_docs/api.md` — API requirements.
+
+These documents act as persistent context so the agent does not need to rediscover the same information in every session.
+
+#### 5. Task Grooming
+
+Before implementation, a task can be **groomed** to make it precise enough for an engineer to implement.
+
+A groomed task contains:
+
+1. **Goal** — What should be true when the task is complete.
+2. **Acceptance criteria** — Checkable requirements.
+3. **Out of scope** — What the task must not implement.
+4. **Constraints** — Files, libraries, architecture, and existing decisions that must be respected.
+
+The important idea is to catch misunderstandings during specification rather than after implementation.
+
+#### 6. Agent Roles
+
+Instead of using one agent for the entire development process, different roles can be assigned to specialized agents:
+
+**Product Manager → Software Engineer → QA Engineer**
+
+- **PM** — Grooms the task and creates clear acceptance criteria.
+- **Engineer** — Implements the groomed task and writes tests.
+- **QA** — Verifies the implementation against the acceptance criteria and reports `PASS` or `FAIL`.
+
+Separating implementation from verification helps avoid having the same agent effectively judge its own work.
+
+#### 7. Loop Engineering
+
+**Loop engineering** means designing a workflow where an AI coding agent continues working until a clearly defined, checkable condition is satisfied.
+
+For example:
+
+**Work → Check → Continue if incomplete → Stop when condition is met**
+
+A loop needs a measurable stop condition, such as:
+
+- All issues are groomed.
+- All tests pass.
+- All acceptance criteria are satisfied.
+
+A vague goal such as "make the code better" is not a good stop condition because it cannot be objectively checked.
+
+#### 8. Graph Engineering
+
+**Graph engineering** extends the idea of loops to multiple specialized agents.
+
+A development workflow can be represented as a graph:
+
+**PM → Engineer → QA**
+
+If QA returns `FAIL`:
+
+**QA → Engineer → QA**
+
+If QA returns `PASS`:
+
+**QA → Next Task**
+
+An orchestrator can manage this workflow automatically.
+
+The orchestrator:
+
+1. Selects the next open issue.
+2. Sends it to the PM agent for grooming.
+3. Sends the groomed task to the Engineer.
+4. Sends the implementation to QA.
+5. If QA fails, sends the feedback back to the Engineer.
+6. If QA passes, closes the issue.
+7. Repeats until the backlog is complete.
+
+#### 9. Key Takeaway
+
+AI-native development is not simply about using AI to write code faster.
+
+It is about designing the **development system around AI agents**:
+
+**Specification → Context → Tasks → Specialized Agents → Verification → Iteration**
+
+The more capable the coding agent becomes, the more important it is to clearly define the requirements, provide the right context, and verify the result.
