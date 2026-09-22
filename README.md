@@ -5,14 +5,15 @@
 - [ML - Churn Prediction](#ml---churn-prediction)
 - [CAD - CadQuery](#cad---cadquery)
 - [AI-Native Development](#ai-native-development)
-  - [Spec-Driven Development](#spec-driven-development)
-  - [AI-Assisted Specification Process](#ai-assisted-specification-process)
-  - [Backlog and Task Decomposition](#backlog-and-task-decomposition)
-  - [Context Engineering](#context-engineering)
-  - [Task Grooming](#task-grooming)
-  - [Agent Roles](#agent-roles)
-  - [Loop Engineering](#loop-engineering)
-  - [Graph Engineering](#graph-engineering)
+  - [1. Spec-Driven Development](#1-spec-driven-development)
+  - [2. AI-Assisted Specification Process](#2-ai-assisted-specification-process)
+  - [3. Backlog and Task Decomposition](#3-backlog-and-task-decomposition)
+  - [4. Context Engineering](#4-context-engineering)
+  - [5. Task Grooming](#5-task-grooming)
+  - [6. Agent Roles](#6-agent-roles)
+  - [7. Loop Engineering](#7-loop-engineering)
+  - [8. Graph Engineering](#8-graph-engineering)
+  - [9. Key Takeaway](#9-key-takeaway)
 
 ---
 
