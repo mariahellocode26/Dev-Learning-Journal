@@ -1,4 +1,4 @@
-# Dev-Learning-Journal
+# 📝 Dev-Learning-Journal
 
 ## Contents
 - [LLM - RAG Pipeline](#llm---rag-pipeline)
